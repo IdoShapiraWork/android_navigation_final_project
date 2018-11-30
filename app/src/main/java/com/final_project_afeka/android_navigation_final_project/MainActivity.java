@@ -1,48 +1,75 @@
 package com.final_project_afeka.android_navigation_final_project;
 
+import android.location.Location;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+
+import com.mapbox.android.core.location.LocationEngine;
+import com.mapbox.android.core.permissions.PermissionsManager;
 import com.mapbox.mapboxsdk.Mapbox;
+
+
+
 import com.mapbox.mapboxsdk.maps.MapView;
+import com.mapbox.mapboxsdk.maps.MapboxMap;
+import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
 
 
-public class MainActivity extends AppCompatActivity {
+
+public class MainActivity extends AppCompatActivity implements OnMapReadyCallback{
     private MapView mapView;
+    private MapboxMap map;
+    private PermissionsManager permissionsManager;
+    private LocationEngine locationEngine;
+    private Location originLocation;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Mapbox access token is configured here. This needs to be called either in your application
+        // object or in the same activity which contains the mapview.
+        Mapbox.getInstance(this, getString(R.string.access_token));
+
         setContentView(R.layout.activity_main);
-        Mapbox.getInstance(this,getResources().getString(R.string.access_token));
-        setContentView(R.layout.activity_main);
+
         mapView = (MapView) findViewById(R.id.mapView);
         mapView.onCreate(savedInstanceState);
+        mapView.getMapAsync(this);
     }
+
     @Override
-    public void onStart() {
+    public void onMapReady(MapboxMap mapboxMap) {
+        map = mapboxMap;
+    }
+
+
+    @Override
+    protected void onStart() {
         super.onStart();
         mapView.onStart();
     }
 
     @Override
-    public void onResume() {
+    protected void onResume() {
         super.onResume();
         mapView.onResume();
     }
+
     @Override
-    public void onPause() {
+    protected void onPause() {
         super.onPause();
         mapView.onPause();
     }
 
     @Override
-    public void onStop() {
+    protected void onStop() {
         super.onStop();
         mapView.onStop();
     }
+
     @Override
     public void onLowMemory() {
         super.onLowMemory();
@@ -54,9 +81,6 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
         mapView.onDestroy();
     }
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        mapView.onSaveInstanceState(outState);
-    }
+
+
 }
