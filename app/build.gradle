@@ -1,11 +1,11 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 27
     defaultConfig {
         applicationId "com.final_project_afeka.android_navigation_final_project"
         minSdkVersion 23
-        targetSdkVersion 26
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -20,7 +20,6 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-
 
 
 }
@@ -38,6 +37,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-messaging:17.3.0'
     implementation 'com.google.firebase:firebase-core:16.0.3'
     implementation 'com.mapbox.mapboxsdk:mapbox-android-sdk:6.7.1'
+    implementation 'com.android.support:design:27.1.0'
+
 
 }
 

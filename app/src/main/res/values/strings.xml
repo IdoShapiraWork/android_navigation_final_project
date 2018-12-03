@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">android_navigation_final_project</string>
     <string name="access_token">pk.eyJ1IjoieWFyb245MTkiLCJhIjoiY2pwNDZyYmdxMDFnMjNsbWt3amJoMTdjdiJ9.-FD6s9dT92zpHFFv8dNFkA</string>
+    <string name="title_activity_navigation_after_notification">NavigationAfterNotification</string>
 </resources>

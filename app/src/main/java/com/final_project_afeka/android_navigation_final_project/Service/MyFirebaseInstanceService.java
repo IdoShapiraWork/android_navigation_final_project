@@ -3,15 +3,17 @@ package com.final_project_afeka.android_navigation_final_project.Service;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.app.TaskStackBuilder;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
+import com.final_project_afeka.android_navigation_final_project.NavigationFromNotification;
 import com.final_project_afeka.android_navigation_final_project.R;
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.iid.FirebaseInstanceIdService;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
@@ -60,6 +62,17 @@ public class MyFirebaseInstanceService extends FirebaseMessagingService {
             notificationManager.createNotificationChannel(notificationChannel);
         }
 
+
+        //Set Intent
+
+        // Create an Intent for the activity you want to start
+        Intent resultIntent = new Intent(this, NavigationFromNotification.class);
+//      Create the TaskStackBuilder and add the intent, which inflates the back stack
+        TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
+        stackBuilder.addNextIntentWithParentStack(resultIntent);
+//      Get the PendingIntent containing the entire back stack
+        PendingIntent resultPendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
+
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this,NOTIFICATION_CHANNEL_ID);
         notificationBuilder.setAutoCancel(true)
                 .setDefaults(Notification.DEFAULT_ALL)
@@ -67,7 +80,11 @@ public class MyFirebaseInstanceService extends FirebaseMessagingService {
                 .setSmallIcon(R.drawable.ic_notification_warning)
                 .setContentTitle(title)
                 .setContentText(body)
-                .setContentInfo("info");
+                .setContentInfo("info")
+                .setContentIntent(resultPendingIntent).
+                setAutoCancel(true);
+
+
 
         notificationManager.notify(new Random().nextInt(),notificationBuilder.build());
 
@@ -89,6 +106,16 @@ public class MyFirebaseInstanceService extends FirebaseMessagingService {
             notificationManager.createNotificationChannel(notificationChannel);
         }
 
+        //Set Intent
+        // Create an Intent for the activity you want to start
+        Intent resultIntent = new Intent(this, NavigationFromNotification.class);
+//      Create the TaskStackBuilder and add the intent, which inflates the back stack
+        TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
+        stackBuilder.addNextIntentWithParentStack(resultIntent);
+//      Get the PendingIntent containing the entire back stack
+        PendingIntent resultPendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        //create notification
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this,NOTIFICATION_CHANNEL_ID);
         notificationBuilder.setAutoCancel(true)
                 .setDefaults(Notification.DEFAULT_ALL)
@@ -96,7 +123,9 @@ public class MyFirebaseInstanceService extends FirebaseMessagingService {
                 .setSmallIcon(R.drawable.ic_notification_warning)
                 .setContentTitle(title)
                 .setContentText(body)
-                .setContentInfo("info");
+                .setContentInfo("info").
+                setContentIntent(resultPendingIntent).
+                setAutoCancel(true);
 
         notificationManager.notify(new Random().nextInt(),notificationBuilder.build());
 

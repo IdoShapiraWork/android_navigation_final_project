@@ -1,16 +1,11 @@
 package com.final_project_afeka.android_navigation_final_project;
 
 import android.location.Location;
-
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
 import com.mapbox.android.core.location.LocationEngine;
 import com.mapbox.android.core.permissions.PermissionsManager;
 import com.mapbox.mapboxsdk.Mapbox;
-
-
-
 import com.mapbox.mapboxsdk.maps.MapView;
 import com.mapbox.mapboxsdk.maps.MapboxMap;
 import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
@@ -23,6 +18,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     private PermissionsManager permissionsManager;
     private LocationEngine locationEngine;
     private Location originLocation;
+
+
 
 
     @Override
@@ -38,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(this);
     }
+
 
     @Override
     public void onMapReady(MapboxMap mapboxMap) {
