@@ -25,6 +25,7 @@ android {
 }
 repositories {
     mavenCentral()
+    maven { url 'https://mapbox.bintray.com/mapbox' }
 }
 
 dependencies {
@@ -36,7 +37,12 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'com.google.firebase:firebase-messaging:17.3.0'
     implementation 'com.google.firebase:firebase-core:16.0.3'
-    implementation 'com.mapbox.mapboxsdk:mapbox-android-sdk:6.7.1'
+    implementation 'com.mapbox.mapboxsdk:mapbox-android-sdk:6.7.2`'
+    implementation ('com.mapbox.mapboxsdk:mapbox-android-services:1.0.0@aar'){
+        transitive=true
+    }
+    implementation 'com.mapbox.mapboxsdk:mapbox-android-navigation-ui:0.24.0'
+    implementation 'com.mapbox.mapboxsdk:mapbox-android-plugin-locationlayer:0.6.0'
     implementation 'com.android.support:design:27.1.0'
 
 

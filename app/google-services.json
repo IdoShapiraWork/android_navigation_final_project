@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "1020766355607-irfm6tc3qcr4dvs9f290u5d2uec3nb9t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.final_project_afeka.android_navigation_final_project",
+            "certificate_hash": "a1432cb37c65236853c6de8a3702a9d34d1c224c"
+          }
+        },
+        {
           "client_id": "1020766355607-8s5uaj3vj78nmdlkkokelpkuqjanmq12.apps.googleusercontent.com",
           "client_type": 3
         }

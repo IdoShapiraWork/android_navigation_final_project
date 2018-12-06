@@ -13,7 +13,14 @@
         mapbox:mapbox_cameraTargetLat="32.1147794"
         mapbox:mapbox_cameraTargetLng="34.8231548"
         mapbox:mapbox_styleUrl="mapbox://styles/mapbox/streets-v10"
-        mapbox:mapbox_cameraZoom="20" />
+        mapbox:mapbox_cameraZoom="20" >
+
+        <Button
+            android:id="@+id/startButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button" />
+    </com.mapbox.mapboxsdk.maps.MapView>
 
 
 </android.support.constraint.ConstraintLayout>
